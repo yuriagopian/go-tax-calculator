@@ -6,6 +6,9 @@ import (
 
 	"github.com/devfullcycle/gointesivo2/internal/entity"
 	"github.com/stretchr/testify/suite"
+
+	//sqlite3 driver
+	"github.com/mattn/go-sqlite3"
 )
 
 type OrderRepositoryTestSuite struct {
