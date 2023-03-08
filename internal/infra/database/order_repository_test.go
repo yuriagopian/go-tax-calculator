@@ -33,4 +33,9 @@ func (suite *OrderRepositoryTestSuite) TestSavingOrder() {
 
 	suite.NoError(err)
 	suite.NoError(order.CalculateFinalPrice())
+
+	repo := NewOrderRepository(suite.Db)
+	repo.Save(order)
+	suite.NoError(err)
+
 }
