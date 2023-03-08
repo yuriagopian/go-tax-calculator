@@ -47,4 +47,9 @@ func (suite *OrderRepositoryTestSuite) TestSavingOrder() {
 
 	fmt.Println("order", orderResult, err)
 	suite.NoError(err)
+
+	suite.Equal(order.ID, orderResult.ID)
+	suite.Equal(order.Price, orderResult.Price)
+	suite.Equal(order.Tax, orderResult.Tax)
+	suite.Equal(order.FinalPrice, orderResult.FinalPrice)
 }
