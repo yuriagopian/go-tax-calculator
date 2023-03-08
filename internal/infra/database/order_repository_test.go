@@ -2,13 +2,14 @@ package database
 
 import (
 	"database/sql"
+	"fmt"
 	"testing"
 
 	"github.com/devfullcycle/gointesivo2/internal/entity"
 	"github.com/stretchr/testify/suite"
 
 	//sqlite3 driver
-	"github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type OrderRepositoryTestSuite struct {
@@ -41,4 +42,9 @@ func (suite *OrderRepositoryTestSuite) TestSavingOrder() {
 	repo.Save(order)
 	suite.NoError(err)
 
+	var orderResult entity.Order
+	err = suite.Db.QueryRow("select id, price, tax, final_price from orders where id = ?", order.ID).Scan(&orderResult.ID, &orderResult.Price, &orderResult.Tax, &orderResult.FinalPrice)
+
+	fmt.Println("order", orderResult, err)
+	suite.NoError(err)
 }
