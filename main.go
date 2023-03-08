@@ -1,5 +1,7 @@
 package main
 
 func main() {
-	print("Hello, world!")
+	name := "Yuri"
+	name = "Yuri Agopian"
+	print("Hello, world! ", name)
 }
