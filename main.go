@@ -6,6 +6,7 @@ func main() {
 
 	a := 10
 	b := a
+	// b := &a // Referencia de memoria, ponteiro
 	fmt.Println(b)
 
 	b = 20
